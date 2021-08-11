@@ -8,13 +8,9 @@ const Content = () => {
     
     const [message, setMessage] = useState(getMessage(screen));
 
-    const updateMessage = () => {
-        setMessage(getMessage(screen));
-    }
+    const updateMessage = () => setMessage(getMessage(screen));
 
-    useEffect(() => {
-        updateMessage();
-    }, [screen])
+    useEffect(() => updateMessage(), [screen])
 
     return (
         <div className="message-wrapper">
