@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react'
+import Content from './components/Content';
+import { WindowSizeContext } from './contexts/WindowSizeContext';
+import { getWindowSize } from './util/util';
 import './App.css';
 
 function App() {
+
+  const [windowSize, setWindowSize] = useState(getWindowSize())
+
+  const resizeHandler = () => {
+    setWindowSize(getWindowSize());
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeHandler);
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    }
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WindowSizeContext.Provider value={windowSize}>
+      <Content/>
+    </WindowSizeContext.Provider>
   );
 }
 

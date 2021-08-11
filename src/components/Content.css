@@ -1,0 +1,37 @@
+.message-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.message {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+}
+
+.message-card {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid darkorange;
+    box-shadow: 3px 3px 6px 1px rgba(0,0,0,0.75);
+
+}
+
+.message-desktop, .message-tablet, .message-mobile {
+    text-decoration: underline;
+}
+
+.message-desktop {
+    color: royalblue;
+}
+
+.message-tablet {
+    color: rosybrown;
+}
+
+.message-mobile {
+    color: goldenrod;
+}
